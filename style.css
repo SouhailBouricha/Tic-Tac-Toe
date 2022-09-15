@@ -1,0 +1,196 @@
+@font-face {
+    font-family: tropical-Asian;
+    src: url(fonts/TropicalAsianDemoRegular-11V0.ttf)
+}
+@font-face {
+    font-family: helloTropical;
+    src: url(myFont/HelloTropical.ttf);
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    /* background-color: rgb(78, 156, 150); */
+    min-height: 104px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    letter-spacing: 1rem;
+    font-family: 'tropical-Asian', sans-serif;
+    text-align: center;
+}
+.head{
+    font-size: 7rem;
+    letter-spacing: 1rem;
+    font-family: 'tropical-Asian', sans-serif;
+    transition: color 1s ease-in-out,letter-spacing 1s ease-in-out;
+    padding: 0 1rem;
+}
+.head:hover{
+    letter-spacing: 1.2rem;
+    color: rgb(184, 52, 52);
+}
+/*main*/
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    margin-top: 40px;
+}
+.giphy-embed{
+    pointer-events: none;
+}
+.gif_card{
+    height: 450px;
+}
+.head_card{
+    font-family: 'tropical-Asian', sans-serif;
+    font-size: 60px;
+    text-align: center;
+    padding: 0.3rem;
+    transition: all 0.3s ease-in;
+}
+.head_card:hover{
+    color: rgb(184, 52, 52);
+}
+.card{
+    /* background-color: rgb(57, 57, 153); */
+    border-radius: 2rem;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0,0.2),-3px -3px 15px rgba(0, 0, 0,0.2);
+    transition: all 0.5s ease-in-out;
+}
+.vs{
+    font-size: 30vh;
+    font-family: 'tropical-Asian', sans-serif;
+}
+.options_card{
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    text-align: center;
+    height: 70px;
+}
+.btn{
+    font-size: 50px;
+    flex: 1;
+    border: none;
+    outline: none;
+    /* background-color: rgb(189, 144, 231); */
+    font-family: 'tropical-Asian', sans-serif;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    height: 100%;
+}
+.Player{
+    border-bottom-left-radius: 2rem;
+}
+.Player:hover,.Bot:hover{
+    flex: 2;
+    font-size: 60px;
+    z-index: 1000;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0,0.2),-5px -5px 10px rgba(0, 0, 0,0.2);
+    color: rgb(184, 52, 52);
+}
+.Bot{
+    border-bottom-right-radius: 2rem;
+}
+/*footer */
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    text-align: center;
+    padding: 0.7rem;
+}
+.copy{
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    margin-right: 0.5rem;
+}
+.icon{
+    position: relative;
+    top: 2px;
+    transform: rotateZ(0deg) scale(0.9);
+    transition: transform 0.3s ease-in-out;
+}
+.icon:hover{
+    transform: rotateZ(360deg) scale(1.2);
+}
+/* Media */
+
+@media screen and (max-width:1191px){
+    main{
+        gap: 50px;
+    }
+    .giphy-embed{
+        pointer-events: none;
+        width: 350px;
+        height: 350px;
+    }
+    .gif_card{
+        height: 350px;
+    }
+}
+@media screen and (max-width:1002px){
+    main{
+        gap: 40px;
+    }
+    .giphy-embed{
+        pointer-events: none;
+        width: 300px;
+        height: 300px;
+    }
+    .gif_card{
+        height: 300px;
+    }
+    .copy{
+        font-size: 1rem;
+       
+    }
+}
+@media screen and (max-width:866px){
+    main{
+        gap: 40px;
+        flex-direction: column;
+    }
+    .giphy-embed{
+        pointer-events: none;
+        width: 350px;
+        height: 350px;
+    }
+    .gif_card{
+        height: 350px;
+    }
+}
+@media screen and (max-width:379px){
+    main{
+        gap: 40px;
+        flex-direction: column;
+    }
+    .giphy-embed{
+        pointer-events: none;
+        width: 250px;
+        height: 250px;
+    }
+    .gif_card{
+        height: 250px;
+    } 
+    .copy{
+        font-size: 0.8rem;   
+    }
+}
+
+@media screen and (max-width:700px){
+    .head{
+        font-size: 15vw;
+    }
+}

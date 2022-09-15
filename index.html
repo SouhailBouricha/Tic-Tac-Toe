@@ -1,14 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="./icons/tic-tac-toe.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tic Tac Toe</title>
-</head>
-<body>
-    
+  </head>
+  <body>
+    <header>
+      <h1 class="head">TIC TAC TOE</h1>
+    </header>
+    <main>
+      <div class="card card1">
+        <div class="head_card">X</div>
+        <div class="gif_card">
+          <iframe
+            src="https://giphy.com/embed/l41lGnxllmN3YqOyI"
+            width="450"
+            height="450"
+            frameborder="0"
+            class="giphy-embed"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="options_card">
+          <button class="btn Player">Player</button>
+          <button class="btn Bot">Bot</button>
+        </div>
+      </div>
+      <h2 class="vs">Vs</h2>
+      <div class="card card2">
+        <div class="head_card">O</div>
+        <div class="gif_card">
+          <iframe
+            src="https://giphy.com/embed/xT77XUw1XMVGIxgove"
+            width="450"
+            height="450"
+            frameborder="0"
+            class="giphy-embed"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="options_card">
+          <button class="btn Player">Player</button>
+          <button class="btn Bot">Bot</button>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p class="copy">
+        Copyright © <span class="date">2015</span> SouhailBouricha
+      </p>
+      <a class="icon" href="https://github.com/SouhailBouricha" target="_blank"
+        ><img src="./icons/iconmonstr-github-1.svg" alt="icon_Github"
+      /></a>
+    </footer>
     <script src="./app.js"></script>
-</body>
+  </body>
 </html>
