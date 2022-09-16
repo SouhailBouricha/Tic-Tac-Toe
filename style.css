@@ -125,6 +125,33 @@ footer{
 .icon:hover{
     transform: rotateZ(360deg) scale(1.2);
 }
+.btn.black{
+    color: black;
+}
+.btn.red{
+    color: rgb(184, 52, 52);
+}
+.start{
+    font-size: 2rem;
+    font-family: 'tropical-Asian', sans-serif;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    border: none;
+    outline: none;
+    background-color: rgb(226, 226, 226);
+    cursor: pointer;
+    /* display: none; */
+    opacity: 0;
+    pointer-events: none;
+    transition: pointer-events 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+.start.active{
+    opacity: 1;
+    pointer-events: all;
+}
+.center{
+    text-align: center;
+}
 /* Media */
 
 @media screen and (max-width:1191px){

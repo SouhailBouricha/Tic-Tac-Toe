@@ -1,10 +1,67 @@
-
-const Game = (() =>{
+const GameFlow = (() =>{
+    let X_ischeckd = false;
+    let O_ischeckd = false;
+    const Startbtn = document.querySelector(".start");
     const Gameboard = () => {
         const board = new Array(9);
-        return { board };
+
+        const mark = (player,position) => {
+            board[position] = player.sign;
+        }
+        return { board,mark };
     }
-});
+    const Player = (type,sign) => {
+        let play = { type, sign } 
+        return play;
+    }
+    const chosePlayers = () =>{
+        const btns_x = document.querySelectorAll(".btn_x");
+        const btns_o = document.querySelectorAll(".btn_o");
+        btns_x.forEach((btn) =>{
+            btn.addEventListener("click",() =>{
+                X_ischeckd = true;
+                if(X_ischeckd && O_ischeckd){
+                    console.log("yes",btns_x);
+                    Startbtn.classList.add("active");
+                    
+                }
+                btns_x.forEach((ele) =>{
+                    ele.classList.remove("red");
+                    console.log("ele",ele);
+                });
+                btn.classList.add("red");
+            });
+        });
+        btns_o.forEach((btn) =>{
+            btn.addEventListener("click",() =>{
+                O_ischeckd = true;
+                if(X_ischeckd && O_ischeckd){
+                    console.log("yes",btns_o);
+                    Startbtn.classList.add("active");
+                }
+                btns_o.forEach((ele) =>{
+                    ele.classList.remove("red");
+                    console.log("ele",ele);
+                });
+                btn.classList.add("red");
+            });
+        });
+    }
+    chosePlayers();
+    let game = Gameboard();
+    console.log(game,"game");
+    console.log(game.board,"game boar");
+    const sou = Player("pc","x");
+    game.mark(sou,1);
+    console.log(game.board,"game board");
+})();
+
+
+
+
+
+
+
 
 
 
