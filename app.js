@@ -13,7 +13,35 @@ const GameFlow = (() =>{
         const mark = (player,position) => {
             board[position] = player.sign;
         }
-        return { board,mark };
+        const checkWinner = (sign) =>{
+            return board;
+            if(board[0] == sign && board[1] == sign && board[2] == sign) return "winnnnnnnnn";
+            if(board[3] == sign && board[4] == sign && board[5] == sign) return "winnnnnnnnn";
+            if(board[6] == sign && board[7] == sign && board[8] == sign) return "winnnnnnnnn";
+
+            if(board[0] == sign && board[1] == sign && board[2] == sign) return "winnnnnnnnn";
+            if(board[3] == sign && board[4] == sign && board[5] == sign) return "winnnnnnnnn";
+            if(board[6] == sign && board[7] == sign && board[8] == sign) return "winnnnnnnnn";
+            
+            if(board[0] == sign && board[4] == sign && board[8] == sign) return "winnnnnnnnn";
+            if(board[2] == sign && board[4] == sign && board[6] == sign) return "winnnnnnnnn";
+
+        };
+        const mark_A_Place = () =>{
+            const boxs = document.querySelectorAll(".box");
+            boxs.forEach((box) =>{
+                box.addEventListener("click",()=>{
+                    if(bord[box.getAttribute("data-box")] == undefined){
+                        bord[box.getAttribute("data-box")] = Chosen_Player.sign;
+                        box.innerHTML = `<h4 class="xo">${Chosen_Player.sign}</h4>`;
+                        console.log(checkWinner(Chosen_Player.sign));
+                        Chosen_Player.sign == "X" ? Chosen_Player = Player_O : Chosen_Player = Player_X; 
+                        // console.log(Chosen_Player,'\n',bord);
+                    }
+                });
+            });
+        };
+        return { board,mark,mark_A_Place,checkWinner};
     }
     const PlayerObj = (type,sign) => {
         let play = { type, sign } 
@@ -61,24 +89,10 @@ const GameFlow = (() =>{
             Player_X = PlayerObj(X_type,"X");
             Player_O = PlayerObj(O_type,"O");
             Chosen_Player = Player_X;
-            mark_A_Place();
+            bord.mark_A_Place();
         });
     }
-    const mark_A_Place = () =>{
-        const boxs = document.querySelectorAll(".box");
-        boxs.forEach((box) =>{
-            box.addEventListener("click",()=>{
-                // console.log(box.getAttribute("data-box"),Player_X,Player_O,{Pl});
-                if(bord[box.getAttribute("data-box")] == undefined){
-                    bord[box.getAttribute("data-box")] = Chosen_Player.sign;
-                    box.innerHTML = `<h4 class="xo">${Chosen_Player.sign}</h4>`;
-                    Chosen_Player.sign == "X" ? Chosen_Player = Player_O : Chosen_Player = Player_X; 
-                    console.log(Chosen_Player,'\n',bord);
-                    // mark_A_Place(Chosen_Player);
-                }
-            });
-        });
-    };
+    
     let bord = Gameboard();
     chosePlayers();
     startThegame();
