@@ -4,15 +4,18 @@ const GameFlow = (() =>{
     let X_type = "";
     let O_type = "";
     const Startbtn = document.querySelector(".start");
+    let Player_X = "";
+    let Player_O = "";
+    let Chosen_Player = "";
     const Gameboard = () => {
         const board = new Array(9);
-
+        
         const mark = (player,position) => {
             board[position] = player.sign;
         }
         return { board,mark };
     }
-    const Player = (type,sign) => {
+    const PlayerObj = (type,sign) => {
         let play = { type, sign } 
         return play;
     }
@@ -24,13 +27,11 @@ const GameFlow = (() =>{
                 X_type = btn.classList[2];
                 X_ischeckd = true;
                 if(X_ischeckd && O_ischeckd){
-                    // console.log("yes",btns_x);
                     Startbtn.classList.add("active");
                     
                 }
                 btns_x.forEach((ele) =>{
                     ele.classList.remove("red");
-                    // console.log("ele",ele);
                 });
                 btn.classList.add("red");
             });
@@ -40,12 +41,10 @@ const GameFlow = (() =>{
                 O_type = btn.classList[2];
                 O_ischeckd = true;
                 if(X_ischeckd && O_ischeckd){
-                    // console.log("yes",btns_o);
                     Startbtn.classList.add("active");
                 }
                 btns_o.forEach((ele) =>{
                     ele.classList.remove("red");
-                    // console.log("ele",ele);
                 });
                 btn.classList.add("red");
             });
@@ -57,18 +56,34 @@ const GameFlow = (() =>{
             document.querySelector("header").style.display = "none";
             document.querySelector("main").style.display = "none";
             document.querySelector(".game").style.display = "flex";
+            document.querySelectorAll(".score")[0].innerText = `${X_type} One`;
+            document.querySelectorAll(".score")[1].innerText = `${O_type} Tow`;
+            Player_X = PlayerObj(X_type,"X");
+            Player_O = PlayerObj(O_type,"O");
+            Chosen_Player = Player_X;
+            mark_A_Place();
         });
     }
+    const mark_A_Place = () =>{
+        const boxs = document.querySelectorAll(".box");
+        boxs.forEach((box) =>{
+            box.addEventListener("click",()=>{
+                // console.log(box.getAttribute("data-box"),Player_X,Player_O,{Pl});
+                if(bord[box.getAttribute("data-box")] == undefined){
+                    bord[box.getAttribute("data-box")] = Chosen_Player.sign;
+                    box.innerHTML = `<h4 class="xo">${Chosen_Player.sign}</h4>`;
+                    Chosen_Player.sign == "X" ? Chosen_Player = Player_O : Chosen_Player = Player_X; 
+                    console.log(Chosen_Player,'\n',bord);
+                    // mark_A_Place(Chosen_Player);
+                }
+            });
+        });
+    };
+    let bord = Gameboard();
     chosePlayers();
     startThegame();
-    // let game = Gameboard();
-    // console.log(game,"game");
-    // console.log(game.board,"game boar");
-    // const sou = Player("pc","x");
-    // game.mark(sou,1);
-    // console.log(game.board,"game board");
-    console.log(document.querySelector(".board"));
-    document.querySelector(".board").style.height = `${clientWidth}px`;
+    
+    // console.log(b.board[5]);
 })();
 
 
