@@ -8,6 +8,7 @@
 
 }
 
+
 *{
     margin: 0;
     padding: 0;
@@ -151,6 +152,50 @@ footer{
 }
 .center{
     text-align: center;
+}
+.game{
+    padding: 5rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2rem;
+    display: none;
+}
+.result{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+.score{
+    background-color: rgb(177, 97, 97);
+    font-family: 'tropical-Asian', sans-serif;
+    font-size: 4rem;
+    border-radius: 2rem;
+    padding: 0.1rem 2rem;
+}
+.score span{
+    font-family: helloTropical;
+    font-size: 3rem;
+    margin-left: 0.5rem;
+}
+.score:nth-child(1){
+    background-color: rgb(223, 223, 223);
+}
+.board{
+    width: 90%;
+    max-width: 500px;
+    aspect-ratio: 1 / 1;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1rem;
+}
+.box{
+    border-radius: 1rem;
+    cursor: pointer;
+    background-color: rgb(255, 226, 226);
 }
 /* Media */
 

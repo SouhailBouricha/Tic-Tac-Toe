@@ -1,6 +1,8 @@
 const GameFlow = (() =>{
     let X_ischeckd = false;
     let O_ischeckd = false;
+    let X_type = "";
+    let O_type = "";
     const Startbtn = document.querySelector(".start");
     const Gameboard = () => {
         const board = new Array(9);
@@ -19,41 +21,54 @@ const GameFlow = (() =>{
         const btns_o = document.querySelectorAll(".btn_o");
         btns_x.forEach((btn) =>{
             btn.addEventListener("click",() =>{
+                X_type = btn.classList[2];
                 X_ischeckd = true;
                 if(X_ischeckd && O_ischeckd){
-                    console.log("yes",btns_x);
+                    // console.log("yes",btns_x);
                     Startbtn.classList.add("active");
                     
                 }
                 btns_x.forEach((ele) =>{
                     ele.classList.remove("red");
-                    console.log("ele",ele);
+                    // console.log("ele",ele);
                 });
                 btn.classList.add("red");
             });
         });
         btns_o.forEach((btn) =>{
             btn.addEventListener("click",() =>{
+                O_type = btn.classList[2];
                 O_ischeckd = true;
                 if(X_ischeckd && O_ischeckd){
-                    console.log("yes",btns_o);
+                    // console.log("yes",btns_o);
                     Startbtn.classList.add("active");
                 }
                 btns_o.forEach((ele) =>{
                     ele.classList.remove("red");
-                    console.log("ele",ele);
+                    // console.log("ele",ele);
                 });
                 btn.classList.add("red");
             });
         });
     }
+    const startThegame = () =>{
+        Startbtn.addEventListener("click",()=>{
+            console.log("f");
+            document.querySelector("header").style.display = "none";
+            document.querySelector("main").style.display = "none";
+            document.querySelector(".game").style.display = "flex";
+        });
+    }
     chosePlayers();
-    let game = Gameboard();
-    console.log(game,"game");
-    console.log(game.board,"game boar");
-    const sou = Player("pc","x");
-    game.mark(sou,1);
-    console.log(game.board,"game board");
+    startThegame();
+    // let game = Gameboard();
+    // console.log(game,"game");
+    // console.log(game.board,"game boar");
+    // const sou = Player("pc","x");
+    // game.mark(sou,1);
+    // console.log(game.board,"game board");
+    console.log(document.querySelector(".board"));
+    document.querySelector(".board").style.height = `${clientWidth}px`;
 })();
 
 
