@@ -6,3 +6,4 @@
 - chosePlayers
 - startThegame
 - checkWinner
+- bord
