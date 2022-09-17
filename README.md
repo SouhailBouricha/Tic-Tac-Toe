@@ -5,3 +5,4 @@
 - PlayerObj
 - chosePlayers
 - startThegame
+- checkWinner
