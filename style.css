@@ -154,12 +154,12 @@ footer{
     text-align: center;
 }
 .game{
-    padding: 5rem;
+    padding: 3rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 2rem;
+    padding-bottom: 0rem;
     display: none;
 }
 .result{
@@ -207,6 +207,22 @@ footer{
 .box:hover{
     transform: scale(1.07);
     box-shadow: 0px 0px 10px rgba(0, 0, 0,0.2);
+}
+.winBoxes{
+    background-color: rgb(18, 175, 18);
+    animation: win 1s ease-in forwards;
+}
+
+.para{
+    font-size: 3.1rem;
+    font-family: 'tropical-Asian', sans-serif;
+    margin-top: 1rem
+}
+.tieBoxes{
+    background-color: rgb(235, 235, 130);
+}
+.xo{
+    
 }
 /* Media */
 
@@ -276,4 +292,25 @@ footer{
     .head{
         font-size: 15vw;
     }
+}
+
+/*Annimation */
+
+@keyframes win {
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(-10deg);
+    }
+    50%{
+        transform: rotate(10deg);
+    }
+    75%{
+        transform: rotate(-10deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+    
 }

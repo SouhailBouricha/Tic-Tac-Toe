@@ -9,45 +9,84 @@ const GameFlow = (() =>{
     let Chosen_Player = "";
     const Gameboard = () => {
         const board = new Array(9);
-        
+        let round = 0;
         const mark = (player,position) => {
             board[position] = player.sign;
         }
-        const checkWinner = (sign) =>{
+        const getBoard = () =>{
             return board;
-            if(board[0] == sign && board[1] == sign && board[2] == sign) return "winnnnnnnnn";
-            if(board[3] == sign && board[4] == sign && board[5] == sign) return "winnnnnnnnn";
-            if(board[6] == sign && board[7] == sign && board[8] == sign) return "winnnnnnnnn";
-
-            if(board[0] == sign && board[1] == sign && board[2] == sign) return "winnnnnnnnn";
-            if(board[3] == sign && board[4] == sign && board[5] == sign) return "winnnnnnnnn";
-            if(board[6] == sign && board[7] == sign && board[8] == sign) return "winnnnnnnnn";
-            
-            if(board[0] == sign && board[4] == sign && board[8] == sign) return "winnnnnnnnn";
-            if(board[2] == sign && board[4] == sign && board[6] == sign) return "winnnnnnnnn";
-
-        };
+        }
+        const addRound = () =>{
+            round = round + 1;
+            return round;
+        }
         const mark_A_Place = () =>{
             const boxs = document.querySelectorAll(".box");
+            let tieTracker = 0;
             boxs.forEach((box) =>{
                 box.addEventListener("click",()=>{
                     if(bord[box.getAttribute("data-box")] == undefined){
                         bord[box.getAttribute("data-box")] = Chosen_Player.sign;
                         box.innerHTML = `<h4 class="xo">${Chosen_Player.sign}</h4>`;
-                        console.log(checkWinner(Chosen_Player.sign));
+                        // console.log(checkWinner(bord,Chosen_Player.sign),board,Chosen_Player.sign);
+                        let winowes = checkWinner(bord,Chosen_Player.sign);
+                        if(winowes){
+                            tieTracker = -1;
+                            // console.log("wiiiiiin",Player_X.score,Player_O.score);
+                            document.querySelector(".para").innerText = `Round ${addRound()}`;
+                            if(Chosen_Player.sign == "X"){
+                                document.querySelector(".score_x").innerText = `${Player_X.increse(1)}`;
+                            }
+                            else{
+                                document.querySelector(".score_o").innerText = `${Player_O.increse(1)}`;
+                            }
+                            winowes.forEach((ele) =>{
+                                boxs[ele].classList.add("winBoxes");
+                                // console.log(boxs[ele]);
+                            });
+                            setTimeout(() => {
+                                boxs.forEach((ele) =>{
+                                    ele.innerHTML = "";
+                                    ele.classList.remove("winBoxes");
+                                    bord = new Array(9);
+                                });
+                            }, 1000);
+                        }
                         Chosen_Player.sign == "X" ? Chosen_Player = Player_O : Chosen_Player = Player_X; 
                         // console.log(Chosen_Player,'\n',bord);
+                        tieTracker++;
+                        console.log(tieTracker);
+                        if(tieTracker == 9){
+                            console.log("tieeeeeeee",tieTracker);
+                            tieTracker = 0;
+                            document.querySelector(".para").innerText = `Round ${addRound()}`;
+                            boxs.forEach((box) =>{
+                                box.classList.add("tieBoxes");
+                            });
+                            setTimeout(() => {
+                                boxs.forEach((box) =>{
+                                    box.innerHTML = "";
+                                    box.classList.remove("tieBoxes");
+                                });
+                                bord = new Array(9);
+                            }, 1000);
+                        }
                     }
                 });
             });
         };
-        return { board,mark,mark_A_Place,checkWinner};
+        return { board,mark,mark_A_Place,checkWinner,round,getBoard};
     }
     const PlayerObj = (type,sign) => {
-        let play = { type, sign } 
+        let score = 0;
+        const increse = (add) =>{
+            score = score + add;
+            return score;
+        }
+        let play = { type, sign, increse, score } 
         return play;
     }
-    const chosePlayers = () =>{
+    const chosePlayers = () => {
         const btns_x = document.querySelectorAll(".btn_x");
         const btns_o = document.querySelectorAll(".btn_o");
         btns_x.forEach((btn) =>{
@@ -86,13 +125,39 @@ const GameFlow = (() =>{
             document.querySelector(".game").style.display = "flex";
             document.querySelectorAll(".score")[0].innerText = `${X_type} One`;
             document.querySelectorAll(".score")[1].innerText = `${O_type} Tow`;
+            let score_x = document.createElement("span");
+            let score_o = document.createElement("span");
+            score_x.classList.add("score_x");
+            score_o.classList.add("score_o");
+            document.querySelectorAll(".score")[0].appendChild(score_x);
+            document.querySelectorAll(".score")[1].appendChild(score_o);
             Player_X = PlayerObj(X_type,"X");
             Player_O = PlayerObj(O_type,"O");
+            document.querySelector(".score_x").innerText = `${Player_X.score}`;
+            document.querySelector(".score_o").innerText = `${Player_O.score}`;
+            // console.log(Player_O,Player_X);
             Chosen_Player = Player_X;
             bord.mark_A_Place();
         });
     }
-    
+    const checkWinner = (board,sign) =>{
+        if(board[0] == sign && board[1] == sign && board[2] == sign) return [0,1,2];        
+        if(board[3] == sign && board[4] == sign && board[5] == sign) return [3,4,5];
+        if(board[6] == sign && board[7] == sign && board[8] == sign) return [6,7,8];
+        
+        if(board[0]== sign && board[3] == sign && board[6] == sign) return [0,3,6];
+        if(board[1]== sign && board[4] == sign && board[7] == sign) return [1,4,7];
+        if(board[2]== sign && board[5] == sign && board[8] == sign) return [2,5,8];
+
+        if(board[0] == sign && board[4] == sign && board[8] == sign) return [0,4,8];
+        if(board[2] == sign && board[4] == sign && board[6] == sign) return [2,4,6];
+
+    };
+    const getBord = (board) =>{
+        return [board[0],board[1],board[2],
+                board[3],board[4],board[5],
+                board[6],board[7],board[8]];
+    }
     let bord = Gameboard();
     chosePlayers();
     startThegame();
