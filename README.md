@@ -4,3 +4,4 @@
 - Gameboard
 - PlayerObj
 - chosePlayers
+- startThegame
