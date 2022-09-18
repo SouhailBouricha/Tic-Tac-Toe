@@ -4,6 +4,6 @@
 - Function: Gameboard
 - Function: PlayerObj
 - Function: chosePlayers
-- startThegame
+- Function: startThegame
 - checkWinner
 - bord
