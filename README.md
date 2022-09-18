@@ -3,7 +3,7 @@
 - Function: mark_A_Place
 - Function: Gameboard
 - Function: PlayerObj
-- chosePlayers
+- Function: chosePlayers
 - startThegame
 - checkWinner
 - bord
