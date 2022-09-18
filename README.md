@@ -6,4 +6,4 @@
 - Function: chosePlayers
 - Function: startThegame
 - Function: checkWinner
-- bord
+- Function: bord
