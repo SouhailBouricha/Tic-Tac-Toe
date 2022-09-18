@@ -9,7 +9,7 @@ const GameFlow = (() =>{
     let Chosen_Player = "";
     const Gameboard = () => {
         const board = new Array(9);
-        let round = 0;
+        let round = 1;
         const mark = (player,position) => {
             board[position] = player.sign;
         }
@@ -32,17 +32,26 @@ const GameFlow = (() =>{
                         let winowes = checkWinner(bord,Chosen_Player.sign);
                         if(winowes){
                             tieTracker = -1;
-                            // console.log("wiiiiiin",Player_X.score,Player_O.score);
                             document.querySelector(".para").innerText = `Round ${addRound()}`;
                             if(Chosen_Player.sign == "X"){
-                                document.querySelector(".score_x").innerText = `${Player_X.increse(1)}`;
+                                let incr1 = Player_X.increse(1);
+                                document.querySelector(".score_x").innerText = `${incr1}`;
+                                if(incr1 == 1){
+                                    // document.querySelector(".score1_xx").innerHTML = `<img src="./icons/trophy.png" alt="trophy" class="vitoryWin">`;
+                                    console.log(document.querySelector(".result"),"fio");
+                                }
                             }
                             else{
-                                document.querySelector(".score_o").innerText = `${Player_O.increse(1)}`;
+                                let incr2 = Player_O.increse(1);
+                                document.querySelector(".score_o").innerText = `${incr2}`;
+                                if(incr2 == 1){
+                                    let oldh = document.querySelector(".result").innerHTML;
+                                    console.log(oldh,"fio");
+                                    // document.querySelector(".result").innerHTML = `<img src="./icons/trophy.png" alt="trophy" class="vitoryWin">`;
+                                }
                             }
                             winowes.forEach((ele) =>{
                                 boxs[ele].classList.add("winBoxes");
-                                // console.log(boxs[ele]);
                             });
                             setTimeout(() => {
                                 boxs.forEach((ele) =>{

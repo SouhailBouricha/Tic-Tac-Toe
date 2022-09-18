@@ -198,7 +198,7 @@ footer{
     cursor: pointer;
     background-color: rgb(226, 226, 226);
     font-family: 'tropical-Asian', sans-serif;
-    font-size: 4.5rem;    
+    font-size: 9rem;    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -222,7 +222,65 @@ footer{
     background-color: rgb(235, 235, 130);
 }
 .xo{
-    
+    animation: mark 0.5s ease-in-out;
+}
+.trophy{
+    width: 50px;
+    aspect-ratio: 1 / 1;
+}
+.win_pup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0,0.5);
+}
+.con{
+    width: 90%;
+    max-width: 500px;
+    background-color: rgb(26, 238, 121);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 2rem;
+    gap: 2rem;
+    font-size: 2rem;
+    position: relative;
+    border-top-right-radius: 0rem;
+}
+.close{
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    padding: -1rem;
+    font-size: 2rem;
+    border: none;
+    outline: none;
+    background: transparent;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+}
+.close:hover{
+    background-color: rgb(243, 243, 243);
+}
+.close img{
+    width: 30px;
+    height: 30px;
 }
 /* Media */
 
@@ -313,4 +371,12 @@ footer{
         transform: rotate(0deg);
     }
     
+}
+@keyframes mark {
+    0%{
+        font-size: 0rem;
+    }
+    100%{
+        font-size: 9rem;
+    }
 }
