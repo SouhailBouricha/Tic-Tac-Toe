@@ -5,5 +5,5 @@
 - Function: PlayerObj
 - Function: chosePlayers
 - Function: startThegame
-- checkWinner
+- Function: checkWinner
 - bord
