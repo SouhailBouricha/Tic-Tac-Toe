@@ -1,7 +1,7 @@
 ## Tic Tac Toe
 
 - Function: mark_A_Place
-- Gameboard
+- Function: Gameboard
 - PlayerObj
 - chosePlayers
 - startThegame
