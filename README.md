@@ -7,6 +7,6 @@
 
 Thanks for checking out this repo.
 
-If you want to try a live show [click here](https://souhailbouricha.github.io/Rock-Paper-Scissors/) 😁
+If you want to try a live show [click here](https://souhailbouricha.github.io/Tic-Tac-Toe/) 😁
 
 
