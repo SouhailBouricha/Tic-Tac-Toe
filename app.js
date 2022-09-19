@@ -4,9 +4,23 @@ const GameFlow = (() =>{
     let X_type = "";
     let O_type = "";
     const Startbtn = document.querySelector(".start");
+    const close = document.querySelector(".close");
+    const win_pup = document.querySelector(".win_pup");
+    const con    = document.querySelector(".con");
     let Player_X = "";
     let Player_O = "";
     let Chosen_Player = "";
+
+    close.addEventListener("click",(e)=>{
+        win_pup.classList.add("deactive");
+        setTimeout(() => {
+            win_pup.style.display = "none";
+            win_pup.classList.remove("active");
+            con.classList.remove("active");
+
+        }, 300);
+        // con.style.display = "none";
+    });
     const Gameboard = () => {
         const board = new Array(9);
         let round = 1;
@@ -28,7 +42,6 @@ const GameFlow = (() =>{
                     if(bord[box.getAttribute("data-box")] == undefined){
                         bord[box.getAttribute("data-box")] = Chosen_Player.sign;
                         box.innerHTML = `<h4 class="xo">${Chosen_Player.sign}</h4>`;
-                        // console.log(checkWinner(bord,Chosen_Player.sign),board,Chosen_Player.sign);
                         let winowes = checkWinner(bord,Chosen_Player.sign);
                         if(winowes){
                             tieTracker = -1;
@@ -36,18 +49,32 @@ const GameFlow = (() =>{
                             if(Chosen_Player.sign == "X"){
                                 let incr1 = Player_X.increse(1);
                                 document.querySelector(".score_x").innerText = `${incr1}`;
-                                if(incr1 == 1){
-                                    // document.querySelector(".score1_xx").innerHTML = `<img src="./icons/trophy.png" alt="trophy" class="vitoryWin">`;
-                                    console.log(document.querySelector(".result"),"fio");
+                                if(incr1 == 3){
+                                    win_pup.classList.add("active");
+                                    con.classList.add("active");
+                                    win_pup.classList.remove("deactive");
+                                    win_pup.style.display = "flex";
+                                    Player_X.restartScore();
+                                    document.querySelector(".score_x").innerText = `${Player_X.score}`;
+                                    document.querySelector(".score_o").innerText = `${Player_O.score}`;
+                                    round = 0;
+                                    document.querySelector(".para").innerText = `Round ${addRound()}`;
                                 }
                             }
                             else{
                                 let incr2 = Player_O.increse(1);
                                 document.querySelector(".score_o").innerText = `${incr2}`;
-                                if(incr2 == 1){
-                                    let oldh = document.querySelector(".result").innerHTML;
-                                    console.log(oldh,"fio");
-                                    // document.querySelector(".result").innerHTML = `<img src="./icons/trophy.png" alt="trophy" class="vitoryWin">`;
+                                if(incr2 == 3){
+                                    win_pup.classList.add("active");
+                                    con.classList.add("active");
+                                    win_pup.classList.remove("deactive");
+                                    win_pup.style.display = "flex";
+                                    Player_O.restartScore();
+                                    document.querySelector(".score_x").innerText = `${Player_X.score}`;
+                                    document.querySelector(".score_o").innerText = `${Player_O.score}`;
+                                    round = 0;
+                                    document.querySelector(".para").innerText = `Round ${addRound()}`;
+                                    
                                 }
                             }
                             winowes.forEach((ele) =>{
@@ -92,7 +119,11 @@ const GameFlow = (() =>{
             score = score + add;
             return score;
         }
-        let play = { type, sign, increse, score } 
+        const restartScore = () =>{
+            score = 0;
+            return score;
+        }
+        let play = { type, sign, increse, score , restartScore} 
         return play;
     }
     const chosePlayers = () => {

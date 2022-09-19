@@ -238,6 +238,15 @@ footer{
     align-items: center;
     justify-content: center;
     background-color: rgba(0, 0, 0,0.5);
+    display: none;
+    transition: all 0.5 ease-in-out;
+}
+.win_pup.active{
+    display: flex;
+}
+.win_pup.deactive{
+    animation: smaller 0.3s ease-in-out forwards;
+    /* display: none; */
 }
 .con{
     width: 90%;
@@ -256,6 +265,12 @@ footer{
     font-size: 2rem;
     position: relative;
     border-top-right-radius: 0rem;
+    transition: all 0.5 ease-in-out;
+    display: none;
+}
+.con.active{
+    display: flex;
+    animation: bigger 0.3s ease-in;
 }
 .close{
     position: absolute;
@@ -263,7 +278,7 @@ footer{
     right: -5px;
     padding: -1rem;
     font-size: 2rem;
-    border: none;
+    border: 1px solid black;
     outline: none;
     background: transparent;
     border-radius: 50%;
@@ -378,5 +393,26 @@ footer{
     }
     100%{
         font-size: 9rem;
+    }
+}
+@keyframes bigger {
+    0%{
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes smaller {
+    0%{
+        transform: scale(1);
+        opacity: 1;
+    }
+    100%{
+        transform: scale(0.3);
+        opacity: 0;
     }
 }
