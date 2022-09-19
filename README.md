@@ -1,9 +1,9 @@
 ## Tic Tac Toe
 
-- mark_A_Place
-- Gameboard
-- PlayerObj
-- chosePlayers
-- startThegame
-- checkWinner
-- bord
+- Function : mark_A_Place
+- Function : Gameboard
+- Function : PlayerObj
+- Function : chosePlayers
+- Function : startThegame
+- Function : checkWinner
+- Function : bord
