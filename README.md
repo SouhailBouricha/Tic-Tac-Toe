@@ -1,9 +1,12 @@
-## Tic Tac Toe
+## Tic Tac Toe 🚀
 
-- Function : mark_A_Place
-- Function : Gameboard
-- Function : PlayerObj
-- Function : chosePlayers
-- Function : startThegame
-- Function : checkWinner
-- Function : bord
+
+![Design preview for the Project: Tic Tac Toe App layout](./icons/Capture.PNG)
+
+## Welcome! 👋
+
+Thanks for checking out this repo.
+
+If you want to try a live show [click here](https://souhailbouricha.github.io/Rock-Paper-Scissors/) 😁
+
+

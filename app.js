@@ -50,6 +50,8 @@ const GameFlow = (() =>{
                                 let incr1 = Player_X.increse(1);
                                 document.querySelector(".score_x").innerText = `${incr1}`;
                                 if(incr1 == 3){
+                                    document.querySelector(".whowon").innerText = document.querySelectorAll(".score")[0].textContent.split(' ')[0] + ' ' + document.querySelectorAll(".score")[0].textContent.split(' ')[1].slice(0,-1) + ' Won'
+                                    console.log(document.querySelectorAll(".score")[0].textContent.split(' '));
                                     win_pup.classList.add("active");
                                     con.classList.add("active");
                                     win_pup.classList.remove("deactive");
@@ -65,6 +67,7 @@ const GameFlow = (() =>{
                                 let incr2 = Player_O.increse(1);
                                 document.querySelector(".score_o").innerText = `${incr2}`;
                                 if(incr2 == 3){
+                                    document.querySelector(".whowon").innerText = document.querySelectorAll(".score")[1].textContent.split(' ')[0] + ' ' + document.querySelectorAll(".score")[1].textContent.split(' ')[1].slice(0,-1) + ' Won'
                                     win_pup.classList.add("active");
                                     con.classList.add("active");
                                     win_pup.classList.remove("deactive");
